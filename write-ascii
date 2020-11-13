@@ -16,7 +16,7 @@ convert\\\
  -negate\\\
  -monochrome\\\
  -transparent white\\\
- -crop 10x15+0+1\\\
+ -crop 13x15+0+1\\\
  +repage\\\
  '"$1"'/signs_lib_font_15px_&.png\
 hb-view\\\
@@ -30,7 +30,7 @@ convert\\\
  -negate\\\
  -monochrome\\\
  -transparent white\\\
- -crop 20x31+0+2\\\
+ -crop 26x31+0+2\\\
  +repage\\\
  '"$1"'/signs_lib_font_31px_&.png"<'|
 sh|
