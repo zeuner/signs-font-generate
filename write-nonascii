@@ -7,7 +7,7 @@ sed 's<{\(.*\)"\(.*\)"}</bin/echo -e "hb-view\\\
  --font-size=15\\\
  --margin=0\\\
  --output-file="/tmp/hb-out.png"\\\
- /usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf\\\
+ /usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf\\\
  '"'"'\1'"'"'\
 convert\\\
  /tmp/hb-out.png\\\
@@ -21,7 +21,7 @@ hb-view\\\
  --font-size=31\\\
  --margin=0\\\
  --output-file="/tmp/hb-out.png"\\\
- /usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf\\\
+ /usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf\\\
  '"'"'\1'"'"'\
 convert\\\
  /tmp/hb-out.png\\\
