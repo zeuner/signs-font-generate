@@ -8,11 +8,11 @@ sh|
 sed 's<.*</bin/echo -e "hb-view\\\
  --font-size=15\\\
  --margin=0\\\
- --output-file="/tmp/hb-out.png"\\\
+ --output-file="'"$1"'/hb-out.png"\\\
  /usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf\\\
  '"'"'\\x&'"'"'\
 convert\\\
- /tmp/hb-out.png\\\
+ '"$1"'/hb-out.png\\\
  -negate\\\
  -monochrome\\\
  -transparent white\\\
@@ -22,11 +22,11 @@ convert\\\
 hb-view\\\
  --font-size=31\\\
  --margin=0\\\
- --output-file="/tmp/hb-out.png"\\\
+ --output-file="'"$1"'/hb-out.png"\\\
  /usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf\\\
  '"'"'\\x&'"'"'\
 convert\\\
- /tmp/hb-out.png\\\
+ '"$1"'/hb-out.png\\\
  -negate\\\
  -monochrome\\\
  -transparent white\\\
@@ -35,3 +35,4 @@ convert\\\
  '"$1"'/signs_lib_font_31px_&.png"<'|
 sh|
 sh -e -x
+rm -f "$1/hb-out.png"
