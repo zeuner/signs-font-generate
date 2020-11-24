@@ -1,10 +1,10 @@
-echo "select 'seq '||ascii('0')||' '||ascii('9');
-select 'seq '||ascii('A')||' '||ascii('Z');
-select 'seq '||ascii('a')||' '||ascii('z');"|
-psql -tA|
+(
+    seq $((0x$(echo -n a | xxd -ps))) $((0x$(echo -n z | xxd -ps)))
+    seq $((0x$(echo -n A | xxd -ps))) $((0x$(echo -n Z | xxd -ps)))
+    seq $((0x$(echo -n 0 | xxd -ps))) $((0x$(echo -n 9 | xxd -ps)))
+)|
+sed 's<^<printf "%.02x\\n" <'|
 sh|
-sed 's/.*/select to_hex(&);/'|
-psql -tA|
 sed 's<.*</bin/echo -e "hb-view\\\
  --font-size=15\\\
  --margin=0\\\
