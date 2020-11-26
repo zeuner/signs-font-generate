@@ -27,8 +27,8 @@ the existing signs_lib textures. In order to get even better alignment at
 the expense of lower texture quality, it is possible to also replace existing
 ASCII character textures:
 
-sh write-ascii <signs_lib_texture_directory>
+sh write-ascii.sh <signs_lib_texture_directory>
 
 For example, with signs_lib residing at "/home/user/signs_lib":
 
-sh write-ascii /home/user/signs_lib/textures
+sh write-ascii.sh /home/user/signs_lib/textures
