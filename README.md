@@ -10,12 +10,12 @@ installed at "/usr/share/fonts/truetype/liberation".
 
 ## Basic usage
 
-sh create-signs-lib-overlay <signs_lib_directory> <language-code>
+sh create-signs-lib-overlay.sh <signs_lib_directory> <language-code>
 
 For example, this command will write textures for the non-ASCII characters
 of the French language to "/home/user/signs_lib":
 
-sh create-signs-lib-overlay /home/user/signs_lib fr
+sh create-signs-lib-overlay.sh /home/user/signs_lib fr
 
 Currently, there is support for German (de), French (fr) and Polish (pl)
 non-ASCII characters.
