@@ -1,4 +1,4 @@
-sed 's,.*,sh unicode-numbers "&",'|
+sed 's,.*,sh unicode-numbers.sh "&",'|
 sh|
 sed 's/'"'"'/&"&"&/g'|
 sed 's/%/&&/g'|
