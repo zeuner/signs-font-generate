@@ -1,6 +1,6 @@
 mkdir -p "$1/textures"
 cat nonascii-$2|
-sh write-nonascii "$1/textures"
+sh write-nonascii.sh "$1/textures"
 cat nonascii-$2|
 sed 's,.*,sh unicode-numbers "&",'|
 sh|
