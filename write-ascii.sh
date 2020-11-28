@@ -2,6 +2,12 @@
     seq $((0x$(echo -n a | xxd -ps))) $((0x$(echo -n z | xxd -ps)))
     seq $((0x$(echo -n A | xxd -ps))) $((0x$(echo -n Z | xxd -ps)))
     seq $((0x$(echo -n 0 | xxd -ps))) $((0x$(echo -n 9 | xxd -ps)))
+    echo -n " #$%&'()*+,-./:;<=>?@[]^_{|}~!\"\\\`"|
+    xxd -ps|
+    sed 's/../&\n/g'|
+    grep .|
+    sed 's/.*/echo $((0x&))/'|
+    sh
 )|
 sed 's<^<printf "%.02x\\n" <'|
 sh|
