@@ -11,34 +11,60 @@
 )|
 sed 's<^<printf "%.02x\\n" <'|
 sh|
-sed 's<.*</bin/echo -e "hb-view\\\
- --font-size=15\\\
- --margin=0\\\
- --output-file="'"$1"'/hb-out.png"\\\
- /usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf\\\
- '"'"'\\x&'"'"'\
-convert\\\
- '"$1"'/hb-out.png\\\
+sed 's<.*</bin/echo -n -e "convert\\\
+ -debug annotate\\\
+ -size 180x180 xc:white\\\
+ -font /usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf\\\
+ -gravity northwest\\\
+ -pointsize 15\\\
+ +antialias\\\
+ -annotate 0 '"'"'"\
+/bin/echo -n -e "\\x&"|\
+sed '"'"'s>'"'"'"'"'"'"'"'"'>\&"\&"\&>'"'"'\
+/bin/echo -n -e "'"'"'\\\
+ "'"$1"'/im-out.png" 2> "'"$1"'/im.err"\
+grep '"'"' width: '"'"' "'"$1"'/im.err"|\
+sed '"'"'s/.* width: //'"'"'|\
+sed '"'"'s/;.*//'"'"'|\
+sed '"'"'s|^|printf \\\"%.0f\\\" |'"'"'|\
+sh|\
+sed '"'"'s%.*%convert\\\
+ '"$1"'/im-out.png\\\
  -negate\\\
  -monochrome\\\
  -transparent white\\\
- -crop 13x15+0+2\\\
+ -crop \\$((\&+1))x15+0+2\\\
  +repage\\\
- '"$1"'/signs_lib_font_15px_&.png\
-hb-view\\\
- --font-size=31\\\
- --margin=0\\\
- --output-file="'"$1"'/hb-out.png"\\\
- /usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf\\\
- '"'"'\\x&'"'"'\
+ '"$1"'/signs_lib_font_15px_&.png%'"'"'|\
+sh -e -x\
 convert\\\
- '"$1"'/hb-out.png\\\
+ -debug annotate\\\
+ -size 180x180 xc:white\\\
+ -font /usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf\\\
+ -gravity northwest\\\
+ -pointsize 31\\\
+ +antialias\\\
+ -annotate 0 '"'"'"\
+/bin/echo -n -e "\\x&"|\
+sed '"'"'s>'"'"'"'"'"'"'"'"'>\&"\&"\&>'"'"'\
+/bin/echo -n -e "'"'"'\\\
+ "'"$1"'/im-out.png" 2> "'"$1"'/im.err"\
+grep '"'"' width: '"'"' "'"$1"'/im.err"|\
+sed '"'"'s/.* width: //'"'"'|\
+sed '"'"'s/;.*//'"'"'|\
+sed '"'"'s|^|printf \\\"%.0f\\\" |'"'"'|\
+sh|\
+sed '"'"'s%.*%convert\\\
+ '"$1"'/im-out.png\\\
  -negate\\\
  -monochrome\\\
  -transparent white\\\
- -crop 26x31+0+4\\\
+ -crop \\$((\&+1))x31+0+4\\\
  +repage\\\
- '"$1"'/signs_lib_font_31px_&.png"<'|
+ '"$1"'/signs_lib_font_31px_&.png%'"'"'|\
+sh -e -x\
+"<'|
 sh|
 sh -e -x
-rm -f "$1/hb-out.png"
+rm -f "$1/im-out.png"
+rm -f "$1/im.err"

@@ -8,6 +8,8 @@ They currently expect the
 [Liberation Fonts](https://github.com/liberationfonts/liberation-fonts) to be
 installed at "/usr/share/fonts/truetype/liberation".
 
+ImageMagick is also required.
+
 ## Basic usage
 
 sh create-signs-lib-overlay.sh <signs_lib_directory> <language-code>
@@ -24,8 +26,8 @@ non-ASCII characters.
 
 I chose the image processing parameters in order fairly match the alignment of
 the existing signs_lib textures. In order to get even better alignment at
-the expense of lower texture quality, it is possible to also replace existing
-ASCII character textures:
+the expense of slightly smaller textures, it is possible to also replace
+existing ASCII character textures:
 
 sh write-ascii.sh <signs_lib_texture_directory>
 
